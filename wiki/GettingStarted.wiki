@@ -2,10 +2,10 @@
 #labels Featured,Phase-Requirements,Phase-Implementation
 
 =Build System=
-libflexdsp at its current stage is developed in eclipse/CDT environment, so it's best to use it as this is the only "supported" build system so far. It's very probable that we'll switch to something more sophisticated at some later stage, however currently it's perfectly sufficient. We surely don't want to change the IDE, so the future build system must be supported by CDT - according to my knowledge the only option remains GNU autotools, which at this stage are overkill.
+libflexdsp at its current stage is developed in eclipse/CDT environment, so it's best to use it as this is the only "supported" build system so far. It's very probable that we'll switch to something more sophisticated at some later stage, however currently it's perfectly sufficient. We surely don't want to change the IDE, so the future build system must be supported by CDT - according to my knowledge the only option remains GNU autotools, which at this stage is an overkill.
 
 =Platforms=
-The primary development platform is currently Windows. We test the build with MinGW and MS Visual C++ compilers. There are also build configurations for Linux-GCC and MacOSX-GCC. They are tested less frequently, however also considered "officially supported" (if there is anything like that). 
+The primary development platform is currently Windows. We test the build with MinGW-GCC and MS Visual C++ compilers. There are also build configurations for Linux-GCC and MacOSX-GCC. They are tested less frequently, however also considered "officially supported" (if there is anything like that). 
 
 =Configuring=
 The library is configured by the preprocesssor macros which can be provided during the compilation (in the command line) or in the separate file. If `DSP_USE_CUSTOM_CONFIG` is declared on command line, the preprocessor will include the file `dsp_custom_config.h` from the "include search path". The user may customize the library behavior with this file. See file `dsp++/config.h` for a full list of configuration options and their documentation.
@@ -15,3 +15,6 @@ libflexdsp incorporates wrappers for some 3rd-party libraries (which may be disa
   * Boost - currently it is the only "hard" dependency. Although it should be possible to disable it with `DSP_BOOST_DISABLED` macro, currently it's impossible, as the compilation will fail. We're working on this.
   * libsndfile - use `DSP_SNDFILE_DISABLED` to disable.
   * fftw3 - use `DSP_FFTW_DISABLED` to disable.
+
+=Building with Eclipse=
+Start with importing the project from SVN. To do that your Eclipse environment must include some plugins for Subversion integration (Subversive from Polarion?). From File menu choose New->Project and then from SVN category "Project from SVN". Configure repository location according to the information on the "Source" tab and import the library from https://libflexdsp.googlecode.com/svn/trunk/dsp++ and the test project from https://libflexdsp.googlecode.com/svn/trunk/dsp++-test (2 projects). Switch the IDE to C/C++ Perspective and build the desired configurations. Easy.
