@@ -15,6 +15,13 @@ libflexdsp incorporates wrappers for some 3rd-party libraries (which may be disa
   * Boost - currently it is the only "hard" dependency. Although it should be possible to disable it with `DSP_BOOST_DISABLED` macro, currently it's impossible, as the compilation will fail. We're working on this.
   * libsndfile - use `DSP_SNDFILE_DISABLED` to disable.
   * fftw3 - use `DSP_FFTW_DISABLED` to disable.
+  * cppunit - only for dsp++-test project, for unit-testing the library.
 
 =Building with Eclipse=
 Start with importing the project from SVN. To do that your Eclipse environment must include some plugins for Subversion integration (Subversive from Polarion?). From File menu choose New->Project and then from SVN category "Project from SVN". Configure repository location according to the information on the "Source" tab and import the library from https://libflexdsp.googlecode.com/svn/trunk/dsp++ and the test project from https://libflexdsp.googlecode.com/svn/trunk/dsp++-test (2 projects). Switch the IDE to C/C++ Perspective and build the desired configurations. Easy.
+
+=Documentation=
+The source code is documented with doxygen. We recommend that you install doxygen on the development machine and use it to have the documentation always up-to-date. There's even a `dsp++.doxyfile` file with doxygen configuration. To make things easier it's good to install doxygen support for eclipse in the form of Eclox plugin. Then, you can build the documentation with a single click. 
+
+=Examples=
+Currently there are only a few usage examples in the form of dsp++-test project. These are by no means comprehensive, yet give some thoughts of how to use the specific features. However we understand the need for some real examples, as the library code sometimes isn't exactly self-explanatory. These will appear as only time allows.
