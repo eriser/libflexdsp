@@ -2,7 +2,7 @@
 #labels Featured,Phase-Requirements,Phase-Implementation
 
 =Build System=
-libflexdsp at its current stage is developed in eclipse/CDT environment, so it's best to use it as this is the only "supported" build system so far. It's very probable that we'll switch to something more sophisticated at some later stage, however currently it's perfectly sufficient. We surely don't want to change the IDE, so the future build system must be supported by CDT - according to my knowledge the only option remains GNU autotools, which at this stage is an overkill.
+libflexdsp at its current stage is developed in eclipse/CDT and MS Visual C++ 2010 environments. The development work is done mainly in MSVC, because it's a no-brainer syncing eclipse to MSVC, while it requires some work the other way. These are the only "supported" build systems so far. It's very probable that we'll switch to something more sophisticated at some later stage, however currently it's perfectly sufficient. We surely don't want to change the IDEs, so the future build system must be supported by both MSVC and CDT. GNU autotools at this stage is an overkill and I don't know whether its possible to generate CMakefiles from MSVC projects.
 
 =Platforms=
 The primary development platform is currently Windows. We test the build with MinGW-GCC and MS Visual C++ compilers. There are also build configurations for Linux-GCC and MacOSX-GCC. They are tested less frequently, however also considered "officially supported" (if there is anything like that). 
@@ -25,3 +25,6 @@ The source code is documented with doxygen. We recommend that you install doxyge
 
 =Examples=
 Currently there are only a few usage examples in the form of dsp++-test project. These are by no means comprehensive, yet give some thoughts of how to use the specific features. However we understand the need for some real examples, as the library code sometimes isn't exactly self-explanatory. These will appear as only time allows.
+
+=Typical lightweight usage=
+It's not necessary to build and link the whole library. In small, lightweight projects I usually tend to add only specific source files directly to the target project. The library is being developed with such usage pattern in mind, trying to keep most of the code in templates and therefore header files (as in Boost header-only libraries). 
