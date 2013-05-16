@@ -1,0 +1,68 @@
+#summary List of supported algorithms and library features
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+ * `#include <dsp++/fft.h>` - Homebrew, generic FFT
+  * `class dsp::fft<Input, Output>` - Homebrew implementation of Fast Fourier Transforms for radix-2 1D data.
+ * `#include <dsp++/filter_design.h> - Filter design tools.
+  * function `dsp::firpm()` - FIR filter design with Parks-McClellan algorithm.
+  * function `dsp::biquad_design()` - Design of SOS IIR (biquad) section.
+  * function `dsp::iir_resonator_design()` - Design of IIR resonator (bandstop/bandpass/allpas) filter.
+  * function `dsp::iir_filter_design()` - Design of IIR filter through bilinear or matched-Z transform of analogue prototype.
+ * `#include <dsp++/filter.h>` - Direct-Form II filter implementations
+  * `class dsp::filter<Sample>` - Direct-From II implementation of FIR/IIR filters
+  * `class dsp::filter_sos<Sample>` - Direct-Form II implementation of second-order-section filter bank
+  * `class dsp::block_filter<Sample>` - Direct-Form II IIR/FIR filter implementation optimized for constant-size block operation
+ * `#include <dsp++/lattice.h>` - Lattice & Ladder filter structures
+  * `class dsp::lattice_fir<Sample>` - Implementation of FIR (all-zero) Lattice filter structure (direct linear predictor)
+  * `class dsp::lattice_iir<Sample>` - Implementation of IIR (all-pole) Lattice filter structure.
+  * `class dsp::lattice_ladder<Sample>` - Implementation of mixed FIR-IIR Lattice-Ladder filter structure.
+ * `#include <dsp++/levinson.h>` - Levinson-Durbin recursion
+  * function `dsp::levdown()` - progress one step down in L-D recursion
+  * function `dsp::levup()` - progress one step up in L-D recursion
+  * `class dsp::levinson<Sample>` - Levinson-Durbin recursion functor
+ * `#include <dsp++/lpc.h>` - Linear Predictive Coding
+  * `class dsp::lpc<Sample, DFT>` - LPC algorithm functor with pluggable DFT implementation
+ * `#include <dsp++/mean.h>` - Mean value calculation
+  * `class dsp::generalized_mean<Sample, Exponent>` -  Generalized mean calculation for running series of values (e.g. online algorithms) - functor.
+  * `class dsp::arithmetic_mean<Sample>` - Arithmetic mean functor.
+  * `class dsp::geometric_mean<Sample>` - Geometric mean functor.
+  * `class dsp::harmonic_mean<Sample>` - Harmonic mean functor.
+  * `class dsp::quadratic_mean<Sample>` - Quadratic mean (RMS) functor.
+ * `#include <dsp++/overlap_add.h>` - Overlap and Add FIR filter.
+  * `class dsp::overlap_add<Sample, DFT>` - Implementation of Overlapp-Add convolution (FIR filtering via frequency-domain multiplication) - functor.
+ * `#include <dsp++/window.h>` - Window function generators.
+  * `class dsp::wnd::window_function<Result>` - Window function template (base class) functor.
+  * `class dsp::wnd::window_iterator<Window>` - Implementation of iterator concept for window generators.
+  * function `dsp::wnd::apply()` - Apply a given windowing function to a sequence of samples specified by the iterator range.
+  * `class dsp::wnd::window<Result>` - Base interface for family of polymorphic window generators.
+  * `class dsp::wnd::window_adapter<Result, Window>` - Polymorphic adapter for window_function-compatible functors.
+  * `class dsp::wnd::rectwin<Result>` - Rectangular (Dirichlet) window generator.
+  * `class dsp::wnd::hamming<Result>` - Hamming window generator.
+  * `class dsp::wnd::hann<Result>` - von Hann window generator.
+  * `class dsp::wnd::blackman<Result>` - Blackman window generator.
+  * `class dsp::wnd::cosine<Result>` - Cosine window generator.
+  * `class dsp::wnd::bartlett<Result>` - Bartlett window generator.
+  * `class dsp::wnd::triang<Result>` - Truangular window generator.
+  * `class dsp::wnd::gausswin<Result>` - Gaussian window generator.
+  * `class dsp::wnd::kaiser<Result>` - Kaiser window generator.
+ * `#include <dsp++/xcorr.h>` - Cross- (and auto-) correlation
+  * `class dsp::xcorr<Sample, DFT>` - Cross-correlation calculation functor based on pluggable DFT implementation.
+ * `#include <dsp++/fftw/dft.h>` - FFTW library front-end.
+ * `#include <dsp++/snd/*>` - Sound-specific tools...
+  * `#include <dsp++/snd/format.h>` - Constructs used to describe audio data format.
+  * `#include <dsp++/snd/reader.h>` - `class dsp::snd::reader` - Sound file reading based on libsndfile
+  * `#include <dsp++/snd/writer.h>` - `class dsp::snd::writer` - Sound file writing based on libsndfile
+ * `#include <dsp++/dynamics.h>` - Non-Linear Dynamics processors
+  * `class dsp::compressor<Sample, Envelope>` - Dynamics compressor with single threshold point, configurable attack/decay time and pluggable envelope estimator.
+  * `class dsp::limiter<Sample, Functor>` - Amplitude limiter with pluggable knee functor (asymptotic function, defaults to `class dsp::tanh<Sample>`).
+
+
+
+
+ 
