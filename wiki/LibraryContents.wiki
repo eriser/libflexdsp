@@ -9,7 +9,7 @@ Add your content here.
 
  * `#include <dsp++/fft.h>` - Homebrew, generic FFT
   * `class dsp::fft<Input, Output>` - Homebrew implementation of Fast Fourier Transforms for radix-2 1D data.
- * `#include <dsp++/filter_design.h> - Filter design tools.
+ * `#include <dsp++/filter_design.h>` - Filter design tools.
   * function `dsp::firpm()` - FIR filter design with Parks-McClellan algorithm.
   * function `dsp::biquad_design()` - Design of SOS IIR (biquad) section.
   * function `dsp::iir_resonator_design()` - Design of IIR resonator (bandstop/bandpass/allpas) filter.
@@ -41,7 +41,7 @@ Add your content here.
   * `class dsp::wnd::window_iterator<Window>` - Implementation of iterator concept for window generators.
   * function `dsp::wnd::apply()` - Apply a given windowing function to a sequence of samples specified by the iterator range.
   * `class dsp::wnd::window<Result>` - Base interface for family of polymorphic window generators.
-  * `class dsp::wnd::window_adapter<Result, Window>` - Polymorphic adapter for window_function-compatible functors.
+  * `class dsp::wnd::window_adapter<Result, Window>` - Polymorphic adapter for `window_function`-compatible functors.
   * `class dsp::wnd::rectwin<Result>` - Rectangular (Dirichlet) window generator.
   * `class dsp::wnd::hamming<Result>` - Hamming window generator.
   * `class dsp::wnd::hann<Result>` - von Hann window generator.
