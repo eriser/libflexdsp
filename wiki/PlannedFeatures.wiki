@@ -1,6 +1,7 @@
 #summary List of planned features.
 
 These are the things I know I will need to develop in a predictable time:
+ * Support for fixed-point arithmetics (based on template classes).
  * Specialized versions of filter templates which use SIMD instructions for float type.
  * Sparse FIR filter (impulse response vector consists mostly of 0's with a few non-zero elements randomly scattered)
  * ... 
